@@ -12,6 +12,11 @@ function App() {
   const handleMove = (key, value) => {
     setPosition({ ...position, [key]: Number(value) })
   }
+
+  const handleTransformOrigin = (key, value) => {
+    setOrigin({ ...origin, [key]: Number(value) })
+  }
+
   return (
     <div className="App">
       <main className="PageContainer">
@@ -19,7 +24,7 @@ function App() {
         <Controller
           handleMove={handleMove}
           handleRotate={setRotation}
-          handleTransformOrigin={setOrigin}
+          handleTransformOrigin={handleTransformOrigin}
           size={size}
           position={position}
           rotation={rotation}

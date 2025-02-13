@@ -75,11 +75,11 @@ function Controller({ size, position, rotation, origin, handleMove, handleRotate
         <div className='InputsContainer TextContainer'>
           <label>
             x :
-            <input type="number" name="originX" step="1" value="0" onChange={handleTransformOrigin} />
+            <input type="number" name="originX" step="1" value={origin.x} onChange={e => {handleTransformOrigin('x', e.target.value)}} />
           </label>
           <label>
             y :
-            <input type="number" name="originY" step="1" value="0" onChange={handleTransformOrigin}/>
+            <input type="number" name="originY" step="1" value={origin.y} onChange={e => {handleTransformOrigin('y', e.target.value)}}/>
           </label>
         </div>
       </section>

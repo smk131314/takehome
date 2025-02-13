@@ -25,21 +25,21 @@ function Canvas({ size, rotation, position, origin }) {
     );
 
     // Move the origin to the center of rotation
-    ctx.translate(0, size.height);
+    ctx.translate(origin.x, origin.y + size.height);
     ctx.rotate((rotation * Math.PI) / 180); // Rotate in radians
     // Move the origin to the center of rotation
-    ctx.translate(0, -size.height);
+    ctx.translate(-origin.x, -origin.y-size.height);
 
     // Draw the square
     ctx.fillStyle = '#e5e7eb';
-    ctx.fillRect(origin.x, origin.y + size.height , size.width, -size.height);
+    ctx.fillRect(0, size.height , size.width, -size.height);
     ctx.strokeStyle = 'black';
     ctx.lineWidth = 1;
-    ctx.strokeRect(origin.x, origin.y + size.height , size.width, -size.height);
+    ctx.strokeRect(0, size.height , size.width, -size.height);
 
     // Draw square's origin dot
     ctx.beginPath();
-    ctx.arc(origin.x, origin.y + size.height, 4, 0, 2 * Math.PI);
+    ctx.arc(origin.x, -origin.y + size.height, 4, 0, 2 * Math.PI);
     ctx.fillStyle = "red";
     ctx.fill();
 
