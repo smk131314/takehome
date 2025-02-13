@@ -9,14 +9,21 @@ function App() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [origin, setOrigin] = useState({ x: 0, y: 0 });
 
+  const handleMove = (key, value) => {
+    setPosition({ ...position, [key]: Number(value) })
+  }
   return (
     <div className="App">
       <main className="PageContainer">
         <Canvas size={size} rotation={rotation} position={position} origin={origin} />
         <Controller
-          handleMove={setPosition}
+          handleMove={handleMove}
           handleRotate={setRotation}
           handleTransformOrigin={setOrigin}
+          size={size}
+          position={position}
+          rotation={rotation}
+          origin={origin}
         />
       </main>
     </div>

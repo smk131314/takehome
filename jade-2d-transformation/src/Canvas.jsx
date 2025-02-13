@@ -5,10 +5,6 @@ function Canvas({ size, rotation, position, origin }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-
-    if (!ctx) return;
     window.addEventListener('resize', handleResize, false);
     handleResize();
 
@@ -20,7 +16,14 @@ function Canvas({ size, rotation, position, origin }) {
 
     // Save the current context state
     ctx.save();
-
+    
+    // Apply transformations
+    ctx.setTransform(
+      1, 0, // Horizontal scaling and skewing
+      0, 1, // Vertical scaling and skewing
+      canvas.width/2 + position.x, canvas.height/2 -size.height - position.y // Translation (position)
+    );
+    ctx.rotate((rotation * Math.PI) / 180); // Rotate in radians
     // Draw the square
     ctx.fillStyle = '#e5e7eb';
     ctx.fillRect(origin.x, origin.y, size.width, size.height);
@@ -30,7 +33,7 @@ function Canvas({ size, rotation, position, origin }) {
 
     // Draw square's origin dot
     ctx.beginPath();
-    ctx.arc(origin.x, origin.y, 4, 0, 2 * Math.PI);
+    ctx.arc(origin.x, origin.y + size.height, 4, 0, 2 * Math.PI);
     ctx.fillStyle = "red";
     ctx.fill();
 

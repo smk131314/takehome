@@ -33,7 +33,7 @@ $breakPointMobileMax: 768px;
   .Controller {
     position: absolute;
     top: $smallSpacing;
-    right: $smallSpacing;
+    left: $smallSpacing;
     color: $black;
     background-color: $paleGray;
     border-radius: $borderRadius;
