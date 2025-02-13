@@ -1,0 +1,90 @@
+$primaryColor: #ef4444;
+$secondaryColor: #fee2e2;
+$black: #030712;
+$gray: #9ca3af;
+$lightGray: #e5e7eb;
+$paleGray: #f9fafb;
+$white: #fff;
+$borderRadius: 0.5rem;
+$smallSpacing: 0.5rem;
+$mediumSpacing: 1rem;
+$largeSpacing: 2rem;
+$breakPointMobileMax: 768px;
+
+.App {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.PageContainer {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+
+  .Canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: $secondaryColor;
+  }
+
+  .Controller {
+    position: absolute;
+    top: $smallSpacing;
+    right: $smallSpacing;
+    color: $black;
+    background-color: $paleGray;
+    border-radius: $borderRadius;
+    padding: $mediumSpacing;
+    text-align: left;
+    h2 {
+      font-size: 1rem;
+    }
+  }
+
+  .InputsContainer {
+    display: flex;
+    gap: $smallSpacing;
+    input {
+      margin-left: $smallSpacing;
+    }
+  }
+
+  label, li {
+    font-weight: bold;
+  }
+  li span {
+    font-weight: normal;
+  }
+
+  ol li {
+    list-style-type: none;
+  }
+
+  input, .TextContainer {
+    background-color: $white;
+    border-radius: $borderRadius;
+    border: 1px solid $lightGray;
+  }
+  input {
+    padding: $smallSpacing;
+  }
+  .TextContainer {
+    padding: $smallSpacing $mediumSpacing;
+  }
+}
+
+@media only screen and (max-width: $breakPointMobileMax) {
+  .InputsContainer {
+    flex-direction: column;
+
+    label {
+      display: flex;
+      input {
+        flex: 1;
+      }
+    }
+  }
+}
