@@ -9,7 +9,7 @@ function Controller({ size, position, rotation, origin, handleMove, handleRotate
   }, [rotation, position, origin])
   
   const transformPoint = (x, y, tx, ty, rotation, sx = 1, sy = 1) => {
-    const theta = (rotation * Math.PI) / 180; // Convert degrees to radians
+    const theta = -(rotation * Math.PI) / 180; // Convert degrees to radians
     const cosTheta = Math.cos(theta);
     const sinTheta = Math.sin(theta);
   
@@ -66,7 +66,7 @@ function Controller({ size, position, rotation, origin, handleMove, handleRotate
         <div className='InputsContainer TextContainer'>
           <label>
             angle: 
-            <input type="number" name="rotate" step="1" value="0" onChange={handleRotate} />
+            <input type="number" name="rotate" step="1" value={rotation} onChange={(e) => handleRotate(e.target.value)} />
           </label>
         </div>
       </section>

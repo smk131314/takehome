@@ -16,20 +16,26 @@ function Canvas({ size, rotation, position, origin }) {
 
     // Save the current context state
     ctx.save();
-    
+
     // Apply transformations
     ctx.setTransform(
       1, 0, // Horizontal scaling and skewing
       0, 1, // Vertical scaling and skewing
       canvas.width/2 + position.x, canvas.height/2 -size.height - position.y // Translation (position)
     );
+
+    // Move the origin to the center of rotation
+    ctx.translate(0, size.height);
     ctx.rotate((rotation * Math.PI) / 180); // Rotate in radians
+    // Move the origin to the center of rotation
+    ctx.translate(0, -size.height);
+
     // Draw the square
     ctx.fillStyle = '#e5e7eb';
-    ctx.fillRect(origin.x, origin.y, size.width, size.height);
+    ctx.fillRect(origin.x, origin.y + size.height , size.width, -size.height);
     ctx.strokeStyle = 'black';
     ctx.lineWidth = 1;
-    ctx.strokeRect(origin.x, origin.y, size.width, size.height);
+    ctx.strokeRect(origin.x, origin.y + size.height , size.width, -size.height);
 
     // Draw square's origin dot
     ctx.beginPath();
