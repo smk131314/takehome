@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/takehome/static/css/main.4c43885b.css",
+    "main.js": "/takehome/static/js/main.1cb08382.js",
+    "index.html": "/takehome/index.html",
+    "main.4c43885b.css.map": "/takehome/static/css/main.4c43885b.css.map",
+    "main.1cb08382.js.map": "/takehome/static/js/main.1cb08382.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4c43885b.css",
+    "static/js/main.1cb08382.js"
+  ]
+}
