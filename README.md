@@ -1,5 +1,7 @@
 ## [Transform]
 
+Deployed link : [https://smk131314.github.io/takehome/](https://smk131314.github.io/takehome/)
+
 Run following script to run project locally,
 1. `cd jade-2d-transformation`
 2. `npm i`
